@@ -1,8 +1,10 @@
 from questions import create_question
-from questions import select_character
+from questions import create_subject
+from characters import select_character
 
 def main():
     answer = select_character()
+    create_subject()
     end_quiz = False
     end_score = 3
     player_score = 0
@@ -19,10 +21,7 @@ def main():
                 print("Correct")
                 player_score += 1
                 answer = select_character()
+                create_subject()
             else: print("Incorrect - try again")
 
 main()
-
-
-
-# next have it so the same character can not come up again

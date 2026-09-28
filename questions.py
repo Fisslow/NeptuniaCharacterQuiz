@@ -3,10 +3,6 @@ import random
 
 question_list = [] # list of questions to be asked
 
-def select_character(): # selects random character
-    create_subject()
-    return all_characters[random.randrange(0,4)]
-
 def create_subject():  # appends question_list with random numbers that are not repeating
     while len(question_list) < 3:
         num = random.randint(1, 3)

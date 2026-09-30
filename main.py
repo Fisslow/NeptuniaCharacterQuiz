@@ -10,15 +10,15 @@ question = create_question(answer)
 correct_answer = answer["name"].lower()
 player_score = 0
 
-def end_game():
-    pass
-
 
 def main():
     # Set screen
     root = tk.Tk()
     root.geometry("600x400")
     root.title("Neptunia Character quiz")
+
+    def quit():
+        root.destroy()
 
     # Set Variables for Widgets
     question_var = tk.StringVar()
@@ -34,12 +34,15 @@ def main():
     pervious_var3.set("")
     pervious_var4 = tk.StringVar()
     pervious_var4.set("")
+    question_ammount_var = tk.StringVar()
+    question_ammount_var.set("0 / 5")
 
     # submits entry to check answer
     def submit():
         global answer
         global question
         global correct_answer
+        global player_score
         input = input_var.get()
         input_var.set("")
         pervious_question1 = pervious_var1.get()
@@ -47,7 +50,11 @@ def main():
         pervious_question3 = pervious_var3.get()
         pervious_question4 = pervious_var4.get()
 
+
         if input.lower() == correct_answer:
+            player_score += 1
+            if player_score == 5:
+                quit()
             answer_var.set("Correct")
             answer = select_character()
             correct_answer = answer["name"].lower()
@@ -58,6 +65,7 @@ def main():
             pervious_var2.set("")
             pervious_var3.set("")
             pervious_var4.set("")
+            question_ammount_var.set(f"{player_score} / 5")
 
         else:
             answer_var.set("Incorrect")
@@ -99,6 +107,7 @@ def main():
     pervious_question2 = tk.Label(root, textvariable = pervious_var2)
     pervious_question3 = tk.Label(root, textvariable = pervious_var3)
     pervious_question4 = tk.Label(root, textvariable = pervious_var4)
+    question_ammount = tk.Label(root, textvariable = question_ammount_var)
 
     #  Create Widget in root
     question_label.pack()
@@ -109,6 +118,7 @@ def main():
     pervious_question2.pack()
     pervious_question3.pack()
     pervious_question4.pack()
+    question_ammount.pack()
 
     root.mainloop()
 main()

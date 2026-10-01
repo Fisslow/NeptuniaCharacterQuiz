@@ -23,7 +23,7 @@ def create_question(char):
     if question_subject == 2 and question_subject: #Creates a question on characters race
         return f"This character is a {current_character["race"]}"
 
-    if question_subject == 3 and question_subject: # Creates a question on characters height
+    if question_subject == 3 and question_subject: # Creates a question on characters height.
         return f"This character is {current_character["height"]} centimetres tall"
 
     if question_subject == 4:

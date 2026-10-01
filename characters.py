@@ -14,10 +14,10 @@ If = {"name": "IF", "base": "Planeptune", "race": "Human","height": "149", "weap
 all_characters = [Neptune, Noire, Blanc, Vert, Nepgear, Uni, Rom, Ram, Compa, If]
 shuffled_characters = all_characters
 
-def character_shuffle():
+def character_shuffle(): # Shuffles the shuffled_characters list in a random order
     random.shuffle(shuffled_characters)
 
-def select_character():
+def select_character(): # selects and removes the first entry in the shuffled_characters list.
     character_shuffle()
     selected = shuffled_characters.pop(0)
     return selected

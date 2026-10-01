@@ -17,6 +17,7 @@ def main():
     root.geometry("600x400")
     root.title("Neptunia Character quiz")
 
+    #Closes root when called
     def quit():
         root.destroy()
 
@@ -50,7 +51,7 @@ def main():
         pervious_question3 = pervious_var3.get()
         pervious_question4 = pervious_var4.get()
 
-
+        # Checks if answer is correct
         if input.lower() == correct_answer:
             player_score += 1
             if player_score == 5:
@@ -114,11 +115,11 @@ def main():
     input_entry.pack()
     submit_button.pack()
     answer_label.pack()
+    question_ammount.pack()
     pervious_question1.pack()
     pervious_question2.pack()
     pervious_question3.pack()
     pervious_question4.pack()
-    question_ammount.pack()
 
     root.mainloop()
 main()
